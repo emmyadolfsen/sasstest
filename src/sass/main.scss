@@ -1,0 +1,11 @@
+$darkgreen: rgb(81, 112, 94);
+$lightgreen: lighten($darkgreen, 20%);
+$fontcolor1: rgb(17, 29, 23);
+.menu {
+    background: $darkgreen;
+}
+
+body {
+    color: $fontcolor1;
+    background: $lightgreen;
+}
