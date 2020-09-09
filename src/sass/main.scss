@@ -1,11 +1,29 @@
-$darkgreen: rgb(81, 112, 94);
-$lightgreen: lighten($darkgreen, 20%);
+$bg-color: rgb(77, 28, 55);
+$bg-light: lighten($bg-color, 20%);
 $fontcolor1: rgb(17, 29, 23);
 .menu {
-    background: $darkgreen;
+    background: $bg-color;
 }
 
 body {
     color: $fontcolor1;
-    background: $lightgreen;
+    background: $bg-light;
+}
+
+img {
+    width: 20%;
+    border-radius: 3%;
+    position: absolute;
+}
+
+#skate-color {
+    z-index: 1;
+}
+
+#skatepool {
+    z-index: 3;
+}
+
+#color-texture {
+    z-index: 2;
 }

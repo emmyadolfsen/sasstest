@@ -14,7 +14,7 @@ const browserSync = require('browser-sync').create();
 // Sökvägar
 const files = {
     htmlPath: "src/**/*.html",
-    // cssPath: "src/**/*.css",
+    cssPath: "src/**/*.css",
     jsPath: "src/**/*.js",
     imagePath: "src/images/*",
     htmlmin: "src/*.html",
@@ -26,10 +26,9 @@ const files = {
 // minifiera
 function sassTask() {
     return src(files.sassPath)
-        .pipe(concat('main.css'))
         .pipe(sass().on("error", sass.logError))
-        .pipe(cleanCSS())
-        .pipe(dest('pub/css'))
+        //.pipe(cleanCSS())
+        .pipe(dest('src/css'))
         .pipe(browserSync.stream());
 }
 
@@ -59,7 +58,7 @@ function jsTask() {
         .pipe(browserSync.stream());
 }
 
-/*
+
 // Sammanslå css-filer och minifiera med cleanCSS
 function cssTask() {
     return src(files.cssPath)
@@ -68,15 +67,15 @@ function cssTask() {
         .pipe(dest('pub/css'))
         .pipe(browserSync.stream());
 }
-*/
+
 function watchTask() {
     browserSync.init({
         server: {
             baseDir: './pub/'
         }
     });
-    watch([files.htmlPath, files.imagePath, files.jsPath, files.sassPath],
-        parallel(htmlTask, imageTask, jsTask, sassTask)).on('change', browserSync.reload);
+    watch([files.htmlPath, files.imagePath, files.jsPath, files.sassPath, files.cssPath],
+        parallel(htmlTask, imageTask, jsTask, sassTask, cssTask)).on('change', browserSync.reload);
 }
 
 /*
@@ -91,7 +90,7 @@ function watchTask() {
 
 // Kör globalt
 exports.default = series(
-    parallel(htmlTask, imageTask, sassTask, jsTask),
+    parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
     watchTask
 
 )
