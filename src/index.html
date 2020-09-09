@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <title>SASS</title>
 </head>
 
 <body>
-    <h1>SASS me up</h1>
+    <h1 id="myText"></h1>
     <nav class="menu">
         <li>
             <a href="#">Sass me up</a>
@@ -23,17 +26,18 @@
         <li>
             <a href="#">Sass me otherways</a>
         </li>
-        <li>
+        <li id="last-in-line">
             <a href="#">Sass me around</a>
         </li>
     </nav>
     <p>
         Den här sidan Gulpar med massor av SASS.
     </p>
-
-    <img id="skate-color" src="images/skate-color-explosion.jpg" alt="Kille som hoppar med skateboard i en färgexplosion">
-    <img id="skatepool" src="images/skatepool.jpg" alt="En skatepool">
-    <img id="color-texture" src="images/color-texture.jpg" alt="regnbågens färger">
+    <div class="main">
+        <img id="skate-color" src="images/skate-color-explosion.jpg" alt="Kille som hoppar med skateboard i en färgexplosion">
+        <img id="skatepool" src="images/skatepool.jpg" alt="En skatepool">
+        <img id="color-texture" src="images/color-texture.jpg" alt="regnbågens färger">
+    </div>
 </body>
 
 </html>

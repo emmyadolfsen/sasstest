@@ -11,6 +11,7 @@ const browserSync = require('browser-sync').create();
 
 
 
+
 // Sökvägar
 const files = {
     htmlPath: "src/**/*.html",
@@ -27,7 +28,6 @@ const files = {
 function sassTask() {
     return src(files.sassPath)
         .pipe(sass().on("error", sass.logError))
-        //.pipe(cleanCSS())
         .pipe(dest('src/css'))
         .pipe(browserSync.stream());
 }
@@ -68,29 +68,24 @@ function cssTask() {
         .pipe(browserSync.stream());
 }
 
-function watchTask() {
-    browserSync.init({
-        server: {
-            baseDir: './pub/'
-        }
-    });
-    watch([files.htmlPath, files.imagePath, files.jsPath, files.sassPath, files.cssPath],
-        parallel(htmlTask, imageTask, jsTask, sassTask, cssTask)).on('change', browserSync.reload);
-}
-
-/*
-// Watcher, håller koll på om någon av filerna ändras
-function watchTask() {
-    watch([files.htmlPath, files.imagePath, files.jsPath, files.cssPath, files.sassPath],
-        parallel(htmlTask, imageTask, cssTask, jsTask, sassTask).on('change', browserSync.reload);
-    );
-}
-*/
-
-
 // Kör globalt
 exports.default = series(
     parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
     watchTask
 
 )
+
+
+// Watcher och browsersync
+function watchTask() {
+    browserSync.init({
+        server: {
+            baseDir: './pub/'
+        }
+    });
+    watch(files.htmlPath, htmlTask).on('change', browserSync.reload);
+    watch(files.imagePath, imageTask).on('change', browserSync.reload);
+    watch(files.jsPath, jsTask).on('change', browserSync.reload);
+    watch(files.sassPath, sassTask).on('change', browserSync.reload);
+    watch(files.cssPath, cssTask).on('change', browserSync.reload);
+};

@@ -1,0 +1,16 @@
+.menu {
+    background: $bg-color;
+    @include div;
+    text-align: center;
+}
+
+li {
+    padding: 0 0.5rem;
+    display: inline;
+    font-size: 1rem;
+    border-right: 1px solid black;
+}
+
+#last-in-line {
+    border: none;
+}

@@ -1,29 +1,62 @@
-$bg-color: rgb(77, 28, 55);
-$bg-light: lighten($bg-color, 20%);
-$fontcolor1: rgb(17, 29, 23);
-.menu {
-    background: $bg-color;
-}
-
+@import './resets';
+@import './basic';
+@import './nav';
 body {
-    color: $fontcolor1;
+    width: 80%;
+    margin: 0 auto;
+    color: $font-color;
     background: $bg-light;
+    font-family: 'Righteous', cursive;
 }
 
-img {
-    width: 20%;
-    border-radius: 3%;
+.main {
     position: absolute;
+    width: 80%;
+    height: 400px;
+}
+
+p {
+    @include div;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    @include div;
 }
 
 #skate-color {
-    z-index: 1;
+    @include boxes($on-top: true);
+    z-index: 3;
+    right: 30%;
+    top: 40%;
 }
 
 #skatepool {
-    z-index: 3;
+    @include boxes;
+    z-index: 2;
+    top: 35%;
+    left: 15%;
 }
 
 #color-texture {
-    z-index: 2;
+    border-radius: 3%;
+    z-index: 1;
+    width: 100%;
+}
+
+a:link {
+    color: $font-color;
+}
+
+a:visited {
+    color: $font-light;
+}
+
+a:hover {
+    color: $bg-light;
+}
+
+a:active {
+    color: $bg-dark;
 }
