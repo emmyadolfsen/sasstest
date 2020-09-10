@@ -116,6 +116,12 @@ body {
   background: #e46aad;
   font-family: 'Righteous', cursive; }
 
+#one-by-one, #two-by-two {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #243d31; }
+
 .main {
   display: block;
   margin: auto;
@@ -123,10 +129,6 @@ body {
   text-align: center;
   height: auto;
   margin-bottom: 50px; }
-
-p {
-  margin: 1rem;
-  padding: 1rem; }
 
 h1 {
   font-size: 2rem;
@@ -234,6 +236,8 @@ li {
   .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px); }
+  #span-menu {
+    background: none; }
   .menu {
     position: absolute;
     background: #c4247c;

@@ -40,6 +40,16 @@ body {
     font-family: 'Righteous', cursive;
 }
 
+#one-by-one {
+    @include div;
+    font-size: 1rem;
+    color: $font-light;
+}
+
+#two-by-two {
+    @extend #one-by-one;
+}
+
 .main {
     display: block;
     margin: auto;
@@ -47,10 +57,6 @@ body {
     text-align: center;
     height: auto;
     margin-bottom: 50px;
-}
-
-p {
-    @include div;
 }
 
 h1 {
