@@ -29,7 +29,6 @@ function sassTask() {
     return src(files.sassPath)
         .pipe(sass().on("error", sass.logError))
         .pipe(dest('src/css'))
-        .pipe(browserSync.stream());
 }
 
 // Minifiera html-filer och kopiera
@@ -37,7 +36,6 @@ function htmlTask() {
     return src(files.htmlPath)
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(dest('pub'))
-        .pipe(browserSync.stream());
 }
 
 
@@ -46,7 +44,6 @@ function imageTask() {
     return src(files.imagePath)
         .pipe(imagemin())
         .pipe(dest('pub/images'))
-        .pipe(browserSync.stream());
 }
 
 // Sammanslå js-filer och minifiera med uglify
@@ -55,7 +52,6 @@ function jsTask() {
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(dest('pub/js'))
-        .pipe(browserSync.stream());
 }
 
 
@@ -65,15 +61,9 @@ function cssTask() {
         .pipe(concat('main.css'))
         .pipe(cleanCSS())
         .pipe(dest('pub/css'))
-        .pipe(browserSync.stream());
 }
 
-// Kör globalt
-exports.default = series(
-    parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
-    watchTask
 
-)
 
 
 // Watcher och browsersync
@@ -83,9 +73,18 @@ function watchTask() {
             baseDir: './pub/'
         }
     });
+
+
     watch(files.htmlPath, htmlTask).on('change', browserSync.reload);
     watch(files.imagePath, imageTask).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, sassTask).on('change', browserSync.reload);
     watch(files.cssPath, cssTask).on('change', browserSync.reload);
 };
+
+// Kör globalt
+exports.default = series(
+    parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
+    watchTask
+
+)
