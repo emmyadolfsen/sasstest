@@ -14,23 +14,80 @@ $font-light: lighten($font-color, 10%);
 }
 
 @mixin boxes($on-top: false) {
+    position: relative;
     width: 30%;
+    max-width: 525px;
     border-radius: 3%;
-    position: absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    @if $on-top {
-        opacity: 1;
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-    @else {
-        opacity: 0.5;
-        &:hover {
-            opacity: 1;
-        }
-    }
+}
+
+body {
+    width: 80%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    color: $font-color;
+    background: $bg-light;
+    font-family: 'Righteous', cursive;
+}
+
+.main {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+p {
+    @include div;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    @include div;
+}
+
+#skate-color {
+    @include boxes;
+    width: 40%;
+    left: 5%;
+    z-index: 3;
+}
+
+#skatepool {
+    @include boxes;
+    width: 50%;
+    top: -200px;
+    left: -5%;
+    z-index: 2;
+}
+
+#color-texture {
+    @include boxes;
+    width: 100%;
+    top: -300px;
+    left: 10%;
+    z-index: 1;
+}
+
+a:link {
+    color: $font-color;
+}
+
+a:visited {
+    color: $font-light;
+}
+
+a:hover {
+    color: $bg-light;
+}
+
+a:active {
+    color: $bg-dark;
 }

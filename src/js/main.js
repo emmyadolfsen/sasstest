@@ -3,9 +3,9 @@ $(document).ready(function() {
     sassText();
     // jQuery methods go here...
     function sassText() {
-        var text = "SASS ME UP";
-        var delay = 500;
-        var elem = $("#myText");
+        var text = ("Den här sidan Gulpar med massor av SASS. Och nu har jag fått dig att stanna kvar tills texten är slut!");
+        var delay = 200;
+        var elem = $("#one-by-one");
         //text- string
         //elem - jQuery element where text is to be attached
         //delay - the delay in each text

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *:before,
 *:after {
@@ -106,32 +107,22 @@ input {
 
 /* COLORS */
 /* MIXIN */
-.menu {
-  background: #c4247c;
-  margin: 1rem;
-  padding: 1rem;
-  text-align: center; }
-
-li {
-  padding: 0 0.5rem;
-  display: inline;
-  font-size: 1rem;
-  border-right: 1px solid black; }
-
-#last-in-line {
-  border: none; }
-
 body {
   width: 80%;
+  max-width: 1000px;
+  display: block;
   margin: 0 auto;
   color: #111d17;
   background: #e46aad;
   font-family: 'Righteous', cursive; }
 
 .main {
-  position: absolute;
-  width: 80%;
-  height: 400px; }
+  display: block;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  height: auto;
+  margin-bottom: 50px; }
 
 p {
   margin: 1rem;
@@ -144,39 +135,45 @@ h1 {
   padding: 1rem; }
 
 #skate-color {
+  position: relative;
   width: 30%;
+  max-width: 525px;
   border-radius: 3%;
-  position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  opacity: 1;
-  z-index: 3;
-  right: 30%;
-  top: 40%; }
-  #skate-color:hover {
-    opacity: 0.8; }
+  width: 40%;
+  left: 5%;
+  z-index: 3; }
 
 #skatepool {
+  position: relative;
   width: 30%;
+  max-width: 525px;
   border-radius: 3%;
-  position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  opacity: 0.5;
-  z-index: 2;
-  top: 35%;
-  left: 15%; }
-  #skatepool:hover {
-    opacity: 1; }
+  width: 50%;
+  top: -200px;
+  left: -5%;
+  z-index: 2; }
 
 #color-texture {
+  position: relative;
+  width: 30%;
+  max-width: 525px;
   border-radius: 3%;
-  z-index: 1;
-  width: 100%; }
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: -300px;
+  left: 10%;
+  z-index: 1; }
 
 a:link {
   color: #111d17; }
@@ -189,3 +186,87 @@ a:hover {
 
 a:active {
   color: #6e1445; }
+
+.menu {
+  text-align: center; }
+
+#span-menu {
+  padding: 0.8rem;
+  background: #c4247c; }
+
+li {
+  padding: 0 0.5rem;
+  display: inline-block;
+  font-size: 1rem;
+  border-right: 1px solid black; }
+
+.last-in-line {
+  border: none; }
+
+/******SMALL SCREENS***********
+*******HAMBURGER******************/
+@media only screen and (max-width: 950px) {
+  .ham-menu {
+    position: absolute;
+    z-index: 200;
+    top: 2rem;
+    display: inline-block;
+    cursor: pointer; }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #243d31;
+    margin: 6px 0;
+    transition: 0.4s; }
+  /* Rotera */
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px); }
+  /* Göm */
+  .change .bar2 {
+    opacity: 0; }
+  /* Rotera */
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px); }
+  .menu {
+    position: absolute;
+    background: #c4247c;
+    display: none;
+    width: 96%;
+    top: 2rem;
+    margin: 0;
+    padding: 3rem 3rem;
+    z-index: 100;
+    text-align: center; }
+  li {
+    display: block;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem; } }
+
+#link-1,
+#link-2,
+#link-3,
+#link-4,
+#link-5 {
+  display: none; }
+
+@media only screen and (max-width: 950px) {
+  body {
+    width: 96%;
+    margin: auto; }
+  #skate-color {
+    left: 5%;
+    z-index: 3; }
+  #skatepool {
+    top: -100px;
+    left: -5%;
+    z-index: 2; }
+  #color-texture {
+    width: 40%;
+    top: -130px;
+    left: 10%;
+    z-index: 1; } }
