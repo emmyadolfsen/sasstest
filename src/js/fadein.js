@@ -1,4 +1,4 @@
-// Fade in links when loading page
+// Fade in links when loading - for smoothness
 $(document).ready(function() {
     $("#link-1").fadeIn(2000);
     $("#link-2").fadeIn(2500);
