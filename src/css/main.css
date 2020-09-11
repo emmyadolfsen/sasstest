@@ -243,27 +243,27 @@ li {
     z-index: 200;
     top: 2rem;
     display: inline-block;
-    cursor: pointer;
+    cursor: pointer; }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #243d31;
+    margin: 6px 0;
+    transition: 0.4s; }
+  /* Rotera */
+  .change {
+    /* Göm */
     /* Rotera */ }
-    .ham-menu .bar1,
-    .ham-menu .bar2,
-    .ham-menu .bar3 {
-      width: 35px;
-      height: 5px;
-      background-color: #243d31;
-      margin: 6px 0;
-      transition: 0.4s; }
-    .ham-menu .change {
-      /* Göm */
-      /* Rotera */ }
-      .ham-menu .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px); }
-      .ham-menu .change .bar2 {
-        opacity: 0; }
-      .ham-menu .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px); }
+    .change .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px); }
+    .change .bar2 {
+      opacity: 0; }
+    .change .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px); }
   .menu {
     position: absolute;
     background: #c4247c;
@@ -276,8 +276,8 @@ li {
     text-align: center; }
     .menu #span-menu {
       background: none; }
-    .menu li {
-      display: block;
-      border: none;
-      padding: 0.5rem;
-      font-size: 1.5rem; } }
+  li {
+    display: block;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem; } }

@@ -26,30 +26,30 @@
         top: 2rem;
         display: inline-block;
         cursor: pointer;
-        .bar1,
-        .bar2,
-        .bar3 {
-            width: 35px;
-            height: 5px;
-            background-color: $font-light;
-            margin: 6px 0;
-            transition: 0.4s;
+    }
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: $font-light;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    /* Rotera */
+    .change {
+        .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+        /* Göm */
+        .bar2 {
+            opacity: 0;
         }
         /* Rotera */
-        .change {
-            .bar1 {
-                -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-                transform: rotate(-45deg) translate(-9px, 6px);
-            }
-            /* Göm */
-            .bar2 {
-                opacity: 0;
-            }
-            /* Rotera */
-            .bar3 {
-                -webkit-transform: rotate(45deg) translate(-8px, -8px);
-                transform: rotate(45deg) translate(-8px, -8px);
-            }
+        .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px);
+            transform: rotate(45deg) translate(-8px, -8px);
         }
     }
     .menu {
@@ -65,11 +65,11 @@
         #span-menu {
             background: none;
         }
-        li {
-            display: block;
-            border: none;
-            padding: 0.5rem;
-            font-size: 1.5rem;
-        }
+    }
+    li {
+        display: block;
+        border: none;
+        padding: 0.5rem;
+        font-size: 1.5rem;
     }
 }
