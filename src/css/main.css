@@ -129,6 +129,16 @@ body {
   text-align: center;
   height: auto;
   margin-bottom: 50px; }
+  .main a:link {
+    color: #111d17;
+    text-shadow: 2px 2px 5px #f5d7ee; }
+  .main a:visited {
+    color: #111d17;
+    text-shadow: 2px 2px 5px #f5d7ee; }
+  .main a:hover {
+    color: red; }
+  .main a:active {
+    color: #6e1445; }
 
 h1 {
   font-size: 2rem;
@@ -180,24 +190,19 @@ h1 {
   left: 10%;
   z-index: 1; }
 
-a:link {
-  color: #243d31; }
-
-a:visited {
-  color: #111d17; }
-
-a:hover {
-  color: #e46aad; }
-
-a:active {
-  color: #6e1445; }
-
 .menu {
   text-align: center; }
-
-#span-menu {
-  padding: 0.8rem;
-  background: #e46aad; }
+  .menu a:link {
+    color: #243d31; }
+  .menu a:visited {
+    color: #111d17; }
+  .menu a:hover {
+    color: #f5d7ee; }
+  .menu a:active {
+    color: #6e1445; }
+  .menu #span-menu {
+    padding: 0.8rem;
+    background: #e46aad; }
 
 li {
   padding: 0 0.5rem;
@@ -207,52 +212,6 @@ li {
 
 .last-in-line {
   border: none; }
-
-/******SMALL SCREENS***********
-*******HAMBURGER******************/
-@media only screen and (max-width: 950px) {
-  .ham-menu {
-    position: absolute;
-    z-index: 200;
-    top: 2rem;
-    display: inline-block;
-    cursor: pointer; }
-  .bar1,
-  .bar2,
-  .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #243d31;
-    margin: 6px 0;
-    transition: 0.4s; }
-  /* Rotera */
-  .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px); }
-  /* Göm */
-  .change .bar2 {
-    opacity: 0; }
-  /* Rotera */
-  .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px); }
-  #span-menu {
-    background: none; }
-  .menu {
-    position: absolute;
-    background: #c4247c;
-    display: none;
-    width: 96%;
-    top: 2rem;
-    margin: 0;
-    padding: 3rem 3rem;
-    z-index: 100;
-    text-align: center; }
-  li {
-    display: block;
-    border: none;
-    padding: 0.5rem;
-    font-size: 1.5rem; } }
 
 #link-1,
 #link-2,
@@ -276,4 +235,49 @@ li {
     width: 40%;
     top: -130px;
     left: 10%;
-    z-index: 1; } }
+    z-index: 1; }
+  /******HAMBURGER***********
+    *******MENU******************/
+  .ham-menu {
+    position: absolute;
+    z-index: 200;
+    top: 2rem;
+    display: inline-block;
+    cursor: pointer;
+    /* Rotera */ }
+    .ham-menu .bar1,
+    .ham-menu .bar2,
+    .ham-menu .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #243d31;
+      margin: 6px 0;
+      transition: 0.4s; }
+    .ham-menu .change {
+      /* Göm */
+      /* Rotera */ }
+      .ham-menu .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px); }
+      .ham-menu .change .bar2 {
+        opacity: 0; }
+      .ham-menu .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px); }
+  .menu {
+    position: absolute;
+    background: #c4247c;
+    display: none;
+    width: 96%;
+    top: 2rem;
+    margin: 0;
+    padding: 3rem 3rem;
+    z-index: 100;
+    text-align: center; }
+    .menu #span-menu {
+      background: none; }
+    .menu li {
+      display: block;
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.5rem; } }

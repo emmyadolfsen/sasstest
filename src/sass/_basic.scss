@@ -5,6 +5,8 @@ $bg-light: lighten($bg-color, 20%);
 $bg-dark: darken($bg-color, 20%);
 $font-color: rgb(17, 29, 23);
 $font-light: lighten($font-color, 10%);
+$font-white: rgb(245, 215, 238);
+$font-white-dark: darken($font-white, 5%);
 
 /* MIXIN */
 
@@ -27,6 +29,14 @@ $font-light: lighten($font-color, 10%);
     }
     @else {
         box-shadow: 2px 2px 10px rgb(31, 30, 30);
+    }
+}
+
+@mixin links($visited: false) {
+    color: $font-color;
+    text-shadow: 2px 2px 5px $font-white;
+    @if $visited {
+        text-shadow: 2px 2px 5px $font-white-dark;
     }
 }
 
@@ -57,6 +67,18 @@ body {
     text-align: center;
     height: auto;
     margin-bottom: 50px;
+    a:link {
+        @include links;
+    }
+    a:visited {
+        @include links;
+    }
+    a:hover {
+        color: red;
+    }
+    a:active {
+        color: $bg-dark;
+    }
 }
 
 h1 {
@@ -86,20 +108,4 @@ h1 {
     top: -300px;
     left: 10%;
     z-index: 1;
-}
-
-a:link {
-    color: $font-light;
-}
-
-a:visited {
-    color: $font-color;
-}
-
-a:hover {
-    color: $bg-light;
-}
-
-a:active {
-    color: $bg-dark;
 }
