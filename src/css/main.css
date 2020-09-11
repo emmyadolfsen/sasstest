@@ -190,6 +190,14 @@ h1 {
   left: 10%;
   z-index: 1; }
 
+#before-img {
+  margin-bottom: 3rem; }
+
+.theme-change {
+  background: purple; }
+  .theme-change #one-by-one, .theme-change #two-by-two {
+    color: #f5d7ee; }
+
 .menu {
   text-align: center; }
   .menu a:link {

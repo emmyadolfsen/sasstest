@@ -109,3 +109,20 @@ h1 {
     left: 10%;
     z-index: 1;
 }
+
+#before-img {
+    margin-bottom: 3rem;
+}
+
+@mixin theme($change-theme: true) {
+    @if $change-theme {
+        background: purple;
+        #one-by-one {
+            color: $font-white;
+        }
+    }
+}
+
+.theme-change {
+    @include theme($change-theme: true);
+}
