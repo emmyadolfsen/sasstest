@@ -15,4 +15,4 @@ Bra grejjer helt enkelt!
 Ta en titt: https://www.raggmunkar.se/sass
 
 :metal:
-Sidan är ihoplekt med olika css-animations och jquery.:metal:
+Sidan är ihoplekt utan någon speciell design, med olika css-animations och jquery.:metal:
