@@ -193,6 +193,7 @@ h1 {
 #before-img {
   margin-bottom: 3rem; }
 
+/*****Mixin made to work for theme-change******/
 .theme-change {
   background: purple; }
   .theme-change #one-by-one, .theme-change #two-by-two {

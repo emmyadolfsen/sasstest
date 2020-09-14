@@ -64,8 +64,6 @@ function cssTask() {
 }
 
 
-
-
 // Watcher och browsersync
 function watchTask() {
     browserSync.init({
@@ -73,7 +71,6 @@ function watchTask() {
             baseDir: './pub/'
         }
     });
-
 
     watch(files.htmlPath, htmlTask).on('change', browserSync.reload);
     watch(files.imagePath, imageTask).on('change', browserSync.reload);
@@ -86,5 +83,4 @@ function watchTask() {
 exports.default = series(
     parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
     watchTask
-
 )

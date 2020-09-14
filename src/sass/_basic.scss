@@ -114,6 +114,9 @@ h1 {
     margin-bottom: 3rem;
 }
 
+
+/*****Mixin made to work for theme-change******/
+
 @mixin theme($change-theme: true) {
     @if $change-theme {
         background: purple;
