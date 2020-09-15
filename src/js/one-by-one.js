@@ -3,10 +3,11 @@ $(document).ready(function() {
     sassText();
 
     function sassText() {
+        // Variables
         var text = ("Den här sidan Gulpar med SASS. Och nu har jag fått dig att stanna kvar tills texten är slut!");
         var delay = 100;
         var elem = $("#one-by-one");
-
+        // function one character at a time
         var addTextByDelay = function(text, elem, delay) {
             if (!elem) {
                 elem = $("body");
