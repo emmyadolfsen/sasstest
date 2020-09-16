@@ -8,6 +8,8 @@ const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
 
 
 
@@ -27,8 +29,11 @@ const files = {
 // minifiera
 function sassTask() {
     return src(files.sassPath)
+        .pipe(sourcemaps.init())
         .pipe(sass().on("error", sass.logError))
-        .pipe(dest('src/css'))
+        .pipe(cleanCSS())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('pub/css'))
 }
 
 // Minifiera html-filer och kopiera
@@ -49,20 +54,27 @@ function imageTask() {
 // Sammanslå js-filer och minifiera med uglify
 function jsTask() {
     return src(files.jsPath)
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(concat('main.js'))
         .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('pub/js'))
 }
 
-
+/*
 // Sammanslå css-filer och minifiera med cleanCSS
 function cssTask() {
     return src(files.cssPath)
-        .pipe(concat('main.css'))
-        .pipe(cleanCSS())
-        .pipe(dest('pub/css'))
-}
 
+    .pipe(concat('main.css'))
+        .pipe(cleanCSS())
+
+    .pipe(dest('pub/css'))
+}
+*/
 
 // Watcher och browsersync
 function watchTask() {
@@ -76,11 +88,11 @@ function watchTask() {
     watch(files.imagePath, imageTask).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, sassTask).on('change', browserSync.reload);
-    watch(files.cssPath, cssTask).on('change', browserSync.reload);
+    //watch(files.cssPath, cssTask).on('change', browserSync.reload);
 };
 
 // Kör globalt
 exports.default = series(
-    parallel(htmlTask, imageTask, sassTask, jsTask, cssTask),
+    parallel(htmlTask, imageTask, sassTask, jsTask),
     watchTask
 )
