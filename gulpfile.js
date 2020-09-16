@@ -12,8 +12,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 
 
-
-
 // Sökvägar
 const files = {
     htmlPath: "src/**/*.html",
@@ -64,18 +62,6 @@ function jsTask() {
         .pipe(dest('pub/js'))
 }
 
-/*
-// Sammanslå css-filer och minifiera med cleanCSS
-function cssTask() {
-    return src(files.cssPath)
-
-    .pipe(concat('main.css'))
-        .pipe(cleanCSS())
-
-    .pipe(dest('pub/css'))
-}
-*/
-
 // Watcher och browsersync
 function watchTask() {
     browserSync.init({
@@ -88,7 +74,6 @@ function watchTask() {
     watch(files.imagePath, imageTask).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, sassTask).on('change', browserSync.reload);
-    //watch(files.cssPath, cssTask).on('change', browserSync.reload);
 };
 
 // Kör globalt
