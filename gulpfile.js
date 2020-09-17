@@ -23,14 +23,18 @@ const files = {
 }
 
 // Gör om sassfil till css
-// lägg till i pub/css/main.css
-// minifiera
+// lägg till i main css
 function sassTask() {
     return src(files.sassPath)
-        .pipe(sourcemaps.init())
         .pipe(sass().on("error", sass.logError))
+        .pipe(dest('src/css'))
+}
+
+// Lägg ihop och minifiera
+function cssTask() {
+    return src(files.cssPath)
+        .pipe(concat('main.css'))
         .pipe(cleanCSS())
-        .pipe(sourcemaps.write('.'))
         .pipe(dest('pub/css'))
 }
 
@@ -40,7 +44,6 @@ function htmlTask() {
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(dest('pub'))
 }
-
 
 // Minifiera med imagemin och kopiera
 function imageTask() {
@@ -74,10 +77,11 @@ function watchTask() {
     watch(files.imagePath, imageTask).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, sassTask).on('change', browserSync.reload);
+    watch(files.cssPath, cssTask).on('change', browserSync.reload);
 };
 
 // Kör globalt
 exports.default = series(
-    parallel(htmlTask, imageTask, sassTask, jsTask),
+    parallel(htmlTask, imageTask, sassTask, jsTask), cssTask,
     watchTask
 )
